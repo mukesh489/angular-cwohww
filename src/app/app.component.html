@@ -1,0 +1,20 @@
+<h1>Train Seat Reservation System</h1>
+
+<div *ngFor="let row of seatsArray" class="row">
+  <div
+    *ngFor="let seat of row"
+    class="seat"
+    [ngClass]="seat.status === 'booked' ? 'booked' : 'available'"
+  >
+    {{ seat.number }}
+  </div>
+</div>
+
+<div>
+  <input
+    [(ngModel)]="seatRequest"
+    type="number"
+    placeholder="Enter number of seats"
+  />
+  <button (click)="requestSeats()">Book Seats</button>
+</div>
